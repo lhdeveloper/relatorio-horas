@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import Helmet from 'react-helmet';
-
+import moment from 'moment';
 import api from '../api';
+import Swal from 'sweetalert2';
+
 import '../sass/Login.scss';
 
 function initialState(){
@@ -31,10 +33,18 @@ export default function Login() {
                     }
                 }).then((res) => {
                     const dadosUser = JSON.stringify(res.data);
-                    localStorage.setItem('infos-user', dadosUser)
+                    localStorage.setItem('infos-user', dadosUser);
+                    localStorage.setItem('last-access', moment().format('YYYY-MM-DD HH:mm:ss'))
                     history.push("/");
                 })
             }
+        }).catch((err) => {
+            Swal.fire({
+                icon: `error`,
+                title: `Oops!`,
+                html: `Verifique seu e-mail e senha.`,
+                allowOutsideClick: false
+            })
         })
 
         // pegando o token do localstorage

@@ -189,6 +189,9 @@ main {
 }
 
 footer {
+    position: absolute;
+    bottom:0px;
+    width:100%;
     .dev-by {
         .logo-rdp {
             font-family: 'Roboto Slab', serif;

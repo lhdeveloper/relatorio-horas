@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 import Swal from 'sweetalert2';
 import ImageUploader from 'react-images-upload';
 import { Image } from 'cloudinary-react';
+import InputMask from 'react-input-mask';
 
 // importando containers
 import Header from '../containers/Header';
@@ -37,9 +38,10 @@ export default function EditProfile() {
         resumo: '',
         image: ''
     });
+
+    const [userEmail, setUserEmail] = useState('');
     
     // carregando os dados do usuario logado
-    debugger
     useEffect(() => {
         api.get(`/users/view/${currentID}`, {
             headers: {
@@ -48,6 +50,8 @@ export default function EditProfile() {
         }).then((response) => {
             if(response.status === 200){
                 setData(response.data);
+                setUserEmail(response.data.email)
+                
             }
         }).catch((error) => {
             return Swal.fire({
@@ -116,21 +120,50 @@ export default function EditProfile() {
     const updateProfile = (e) => {
         e.preventDefault();
 
-        debugger
         api.put(`/users/update/${currentID}`, data, {
             headers: {
                 'Authorization': `Bearer ${accessToken}`
             }
-        }).then(() => {
-            return Swal.fire({
-                icon:`success`,
-                title: `Updated!`,
-                text: `Dados atualizados com sucesso`,
-                showConfirmButton: false,
-                timer: 2000,
-            }).then(() => {
-                history.push(`/perfil/${data.username}`);
-            })
+        }).then((response) => {
+            // verificando se o email foi alterado (questões de segurança no login)
+            debugger
+            if(response.data.email !== userEmail){
+                // salvando o e-mail atual antes da mudança
+                const currentEmail = userEmail;
+
+                Swal.fire({
+                    icon: `warning`,
+                    title: `Atenção!`,
+                    html: `Deseja mesmo alterar seu e-mail de cadastro?`,
+                    allowOutsideClick: false,
+                    showCancelButton: true
+                }).then((response) => {
+                    if(response.isConfirmed){
+                        return Swal.fire({
+                            icon:`success`,
+                            title: `Updated!`,
+                            text: `Dados atualizados com sucesso`,
+                            showConfirmButton: false,
+                            timer: 2000,
+                        }).then(() => {
+                            history.push(`/perfil/${data.username}`);
+                        })
+                    }else {
+                        debugger
+                        e.target[4].value = currentEmail;
+                    }
+                })
+            }else{
+                return Swal.fire({
+                    icon:`success`,
+                    title: `Updated!`,
+                    text: `Dados atualizados com sucesso`,
+                    showConfirmButton: false,
+                    timer: 2000,
+                }).then(() => {
+                    history.push(`/perfil/${data.username}`);
+                })
+            }
         }).catch((error) => {
             return Swal.fire({
                 icon:`error`,
@@ -203,8 +236,7 @@ export default function EditProfile() {
                                                         <label className="d-block font-weight-bold">E-mail</label>
                                                         <input type="text" 
                                                                 name="email" 
-                                                                className="form-control" 
-                                                                disabled 
+                                                                className="form-control"
                                                                 value={data.email} 
                                                                 onChange={handleChange}
                                                         />
@@ -232,13 +264,14 @@ export default function EditProfile() {
                                                         />
                                                     </div>
                                                     <div className="col">
-                                                        <label className="d-block font-weight-bold">Telefone</label>
-                                                        <input type="text" 
+                                                        <label className="d-block font-weight-bold">Celular</label>
+                                                        <InputMask className="form-control" mask="(99) 99999-9999" value={data.telefone} onChange={handleChange} />
+                                                        {/* <input type="text" 
                                                                 name="telefone" 
                                                                 className="form-control" 
                                                                 value={data.telefone} 
                                                                 onChange={handleChange}
-                                                        />
+                                                        /> */}
                                                     </div>
                                                 </div>
                                             </div>
@@ -262,7 +295,7 @@ export default function EditProfile() {
 
                                             <div className="form-group justify-content-between">
                                                 <button title="Salvar" className="btn btn-success mr-2 text-white">Salvar</button>
-                                                <Link to="/" title="Cancelar" className="btn btn-danger text-white">Cancelar</Link>
+                                                <Link to={`/perfil/${data.username}`} title="Cancelar" className="btn btn-danger text-white">Cancelar</Link>
                                             </div>
                                         </div>
                                     </div>

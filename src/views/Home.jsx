@@ -10,7 +10,7 @@ import ViewHoras from './ViewHoras';
 import Status from './Status';
 
 export default function DashBoard(){
-
+    
     return (
         <>
             <Helmet title="Home | Relatório de Horas" />

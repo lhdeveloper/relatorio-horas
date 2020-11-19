@@ -18,7 +18,6 @@ export default function UserProfile() {
     const username = jsonUser.username;
 
     const [currentUser, setCurrentUser] = useState({});
-    const [relatorioHoras, setRelatorioHoras] = useState([]);
     const accessToken = localStorage.getItem('app-token');
     const [totalHoras, setTotalHoras] = useState(0);
 
@@ -50,7 +49,7 @@ export default function UserProfile() {
             const totalHoras = response.data.map((item) => {
                 return item.total
             })
-            setRelatorioHoras(totalHoras);
+
             const sum = totalHoras.reduce((acc, time) => acc.add(moment.duration(time)), moment.duration()); 
             const total = [Math.floor(sum.asHours()), sum.minutes()].join(':');
             setTotalHoras(total);
@@ -109,7 +108,7 @@ export default function UserProfile() {
                                     </div>
                                     <div className="col-sm-9 infos">
                                         <div className="d-flex name-edit">
-                                            <h2 className="text-secondary">{currentUser.nome} {currentUser.sobrenome} ({currentUser.username})</h2>
+                                                <h2 className="text-secondary">{currentUser.nome} {currentUser.sobrenome} {currentUser.username ? `(${currentUser.username})` : ''}</h2>
                                             <Link to={`/perfil/${currentUser.username}/edit`} className="btn btn-secondary ml-auto justify-content-between">
                                                 <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-pencil-square text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>

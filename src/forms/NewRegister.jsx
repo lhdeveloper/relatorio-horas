@@ -28,7 +28,7 @@ export default function NewRegister(){
 
     // setando campos;
     const [data, setData] = useState({
-        data: '',
+        data: moment().format('YYYY-MM-DD'),
         inicio: '',
         fim: '',
         saida: '',
