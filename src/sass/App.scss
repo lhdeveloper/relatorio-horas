@@ -1,0 +1,198 @@
+
+@import 'variables';
+@import 'presets';
+@import "~bootstrap/scss/bootstrap";
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size:15px;
+    color:$primary;
+    line-height: 24px;
+    background-color:#f7f7f7;
+}
+
+//logo
+.navbar-brand,
+.logo {
+    font-size:2.3em;
+    letter-spacing: -2px;
+    align-items: center;
+    display: flex;
+    svg {
+        margin-right:.5em;
+    }
+}
+
+//header 
+header {
+    .navbar {
+        .nav-item {
+            font-size:15px;
+            font-weight: bold;
+            padding:0 1em;
+
+            .nav-link {
+                color:white!important;
+                padding:.7em 0em;
+                position: relative;
+
+                &::before {
+                    content:'';
+                    display: block;
+                    width: 0px;
+                    height:3px;
+                    background: white;
+                    position: absolute;
+                    bottom:0px;
+                    left:0px;
+                    transition: all 0.4s;
+                }
+
+                &:hover {
+                    &:before {
+                        width:100%;
+                    }
+                }
+            }
+
+            &.dropdown {
+                &.show {
+                    background: white;
+                    .nav-link {
+                        color:$secondary!important;
+                    }
+                }
+
+                .dropdown-menu {
+                    padding:0;
+                    border:none;
+                    border-radius:0px;
+                    background:#FFF;
+                    opacity:1;
+                    .dropdown-item {
+                        padding:1em .8em;
+                        color:$secondary;
+                        font-size:.8em;
+                        border-bottom: 1px solid #f1f1f1;
+
+                        &:hover {
+                            background: $secondary;
+                            color:#FFF;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//main
+main {
+    padding:2em 0;
+
+    //custom cards
+    .card {
+        box-shadow: 0 7px 14px 0 rgb(226, 226, 226);
+        border:none;
+
+        .card-body {
+            h6 {
+                color:rgb(139, 139, 139);
+            }
+            .fs-4 {
+                font-size:2em!important;
+                font-weight: 900!important;
+            }
+        }
+    }
+
+    //dashboard
+    #dashboard {
+        // status
+        .status {
+            .card {
+                .start {
+                    background: #e0eafc;
+                    border-radius: 50%;
+                    padding: .75rem;
+                    width: 48px;
+                    height: 48px;
+                }
+            }
+        }
+
+        // view
+        table {
+            .actions {
+                a {
+                    font-size:1.5em;
+                }
+            }
+        }
+    }
+
+    //sections
+    section {
+        padding:3em 0;
+
+        .title-button {
+            align-items: center;
+            h2 {
+                margin:0px;
+            }
+        }
+    }
+
+    // user profile
+    #user-profile {
+        .picture {
+            picture {
+                width:100%;
+                height:250px;
+                display: grid;
+                padding:.5em;
+                background:#f1f1f1;
+                align-items: center;
+                position: relative;
+
+                .loading {
+                    position: absolute;
+                    top:45%;
+                    z-index:1;
+                }
+                img {
+                    position: relative;
+                    z-index:10;
+                }
+            }
+        }
+        .horas-registradas {
+            align-items: center;
+            display: flex;
+        }
+
+        .list-group {
+            li {
+                padding:.4em 0;
+                display: flex;
+                align-items: center;
+                border: none;
+                svg {
+                    margin-right: 5px;
+                    width:20px;
+                    font-size:1.1em;
+                }
+            }
+        }
+    }
+}
+
+footer {
+    .dev-by {
+        .logo-rdp {
+            font-family: 'Roboto Slab', serif;
+            color:#000;
+        }
+    }
+}

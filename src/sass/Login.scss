@@ -1,0 +1,46 @@
+@import 'variables';
+
+#login-page {
+    height:100vh;
+    background-attachment: fixed;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+
+    &::before {
+        content: '';
+        display:block;
+        width:100%;
+        height:100%;
+        position: absolute;
+        top:0px;
+        left:0px;
+        background: rgba($secondary, .8);
+        z-index: inherit;
+    }
+
+    .logo {
+        font-size:2rem;
+    }
+
+    .card {
+        max-width: 350px;
+
+        form {
+            .form-control{
+                &:focus {
+                    outline: none;
+                    box-shadow: none;
+                    border:none;
+                    background: $secondary;
+                    color:#FFF;
+                }
+
+                &[type=password]{
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
