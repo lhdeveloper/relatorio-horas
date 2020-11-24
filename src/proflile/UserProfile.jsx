@@ -125,7 +125,7 @@ export default function UserProfile() {
                                         </div>
                                         
                                         <hr/>
-                                        <div className="resumo" dangerouslySetInnerHTML={{ __html: currentUser.resumo }} />
+                                        <div className="resumo" dangerouslySetInnerHTML={{ __html: currentUser.resumo }}/>
                                     </div>
                                 </div>
                             </div>
