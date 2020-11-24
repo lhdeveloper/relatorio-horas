@@ -56,6 +56,7 @@ header {
                 }
             }
 
+            // menu user
             &.dropdown {
                 &.show {
                     background: white;
@@ -81,6 +82,29 @@ header {
                             color:#FFF;
                         }
                     }
+                }
+            }
+        }
+
+        //menu user
+        .dropdown-menu {
+            background: $secondary;
+            padding:.5em;
+            border-radius: 0px;
+            box-shadow: none!important;
+            border: none;
+            left:unset;
+            right:0px;
+            .dropdown-item {
+                padding:.5em;
+                border-bottom: 1px solid rgba(white, 0.1);
+                color:#FFF;
+                svg {
+                    margin-right:.5em;
+                }
+
+                &:hover {
+                    color:$secondary
                 }
             }
         }
@@ -189,9 +213,6 @@ main {
 }
 
 footer {
-    position: absolute;
-    bottom:0px;
-    width:100%;
     .dev-by {
         .logo-rdp {
             font-family: 'Roboto Slab', serif;

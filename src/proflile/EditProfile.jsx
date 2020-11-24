@@ -5,6 +5,8 @@ import Swal from 'sweetalert2';
 import ImageUploader from 'react-images-upload';
 import { Image } from 'cloudinary-react';
 import InputMask from 'react-input-mask';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 // importando containers
 import Header from '../containers/Header';
@@ -36,7 +38,8 @@ export default function EditProfile() {
         email: '',
         telefone: '',
         resumo: '',
-        image: ''
+        image: '',
+        valor_hora: ''
     });
 
     const [userEmail, setUserEmail] = useState('');
@@ -69,6 +72,11 @@ export default function EditProfile() {
             ...data, 
             [e.target.name]:e.target.value
         })
+    }
+
+    const handleCkeditor = (event, editor) => {
+        const resumo = editor.getData();
+        data.resumo = resumo;
     }
 
     const [previewSource, setPreviewSource] = useState('');
@@ -126,7 +134,6 @@ export default function EditProfile() {
             }
         }).then((response) => {
             // verificando se o email foi alterado (questões de segurança no login)
-            debugger
             if(response.data.email !== userEmail){
                 // salvando o e-mail atual antes da mudança
                 const currentEmail = userEmail;
@@ -286,11 +293,25 @@ export default function EditProfile() {
                                                                 onChange={handleChange}
                                                         />
                                                     </div>
+                                                    <div className="col">
+                                                        <label className="d-block font-weight-bold">Valor Hora</label>
+                                                        <input type="text" 
+                                                                name="valor_hora" 
+                                                                className="form-control" 
+                                                                value={data.valor_hora} 
+                                                                onChange={handleChange}
+                                                        />
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div className="form-group">
                                                 <label className="d-block font-weight-bold">Resumo</label>
-                                                <textarea rows="4" value={data.resumo} onChange={handleChange} className="form-control" />
+                                                <CKEditor
+                                                    editor={ ClassicEditor } 
+                                                    onChange={handleCkeditor}
+                                                    data={data.resumo}
+                                                    className="form-control"
+                                                />       
                                             </div>
 
                                             <div className="form-group justify-content-between">

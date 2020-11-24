@@ -1,12 +1,15 @@
 import React from 'react';
+import {Redirect} from 'react-router-dom';
 import '../sass/Login.scss';
-import Helmet from 'react-helmet';
 
-const Logout = () => {
+export default function Logout() {
+
     localStorage.setItem('app-token', '');
     localStorage.setItem('infos-user', '');
+
     return (
-        <div id="login-page" style={{backgroundImage: `url('/bg-login.jpg')` }}>
+        <>
+        {/* <div id="login-page" style={{backgroundImage: `url('/bg-login.jpg')` }}>
             <Helmet title="Logout | Relatório de Horas" />
             <div className="d-flex h-100 justify-content-center align-items-center">
                 <div className="card w-50 d-flex my-auto mx-auto">
@@ -17,14 +20,13 @@ const Logout = () => {
                             </svg> Relatório de horas
                         </div>
                         <div className="text-center">
-                        <p>Você foi desconectado.</p>
-                            <a href="/login" title="Voltar a tela de login">Voltar a tela de login</a>
+                            <p>Você foi desconectado.</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> */}
+        <Redirect to="/login" /> 
+        </>
     )
 }
-
-export default Logout

@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch, Redirect  } from 'react-router-dom';
-//import moment from 'moment';
+import moment from 'moment';
 
 // rotas de views
 import Home from './views/Home';
@@ -19,19 +19,18 @@ import EditHoras from './forms/EditRegister';
 
 export default function Routes(){
     const PrivateRoute = (props) => {
-        debugger
         const isLogged = !!localStorage.getItem('app-token');
-        // const now = moment();
-        // if(isLogged){
-        //     const ultimoAcesso = localStorage.getItem('last-access');
-        //     const dataExpiracao = now.format('YY-MM-DD HH:mm:ss');
+        const now = moment();
+        if(isLogged){
+            const ultimoAcesso = localStorage.getItem('last-access');
+            const dataExpiracao = localStorage.getItem('expired-access');
 
-        //     if(now.isBetween(ultimoAcesso, acessoAtual)){
-        //         return <Route { ...props} />
-        //     }else{
-        //         return <Redirect to="/login" />
-        //     }
-        // }
+            if(now.isBetween(ultimoAcesso, dataExpiracao)){
+                return <Route { ...props} />
+            }else{
+                return <Redirect to="/login" />
+            }
+        }
 
         return isLogged ? <Route { ...props} /> : <Redirect to="/login" />
     }

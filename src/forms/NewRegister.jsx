@@ -26,6 +26,11 @@ export default function NewRegister(){
     //forms validation
     const { register, errors } = useForm();
 
+    // pegando do localStorage os primeiros dados do user logado
+    const getInfosUser = localStorage.getItem('infos-user');
+    const infosUser = JSON.parse(getInfosUser);
+    const currentID = infosUser.id;
+
     // setando campos;
     const [data, setData] = useState({
         data: moment().format('YYYY-MM-DD'),
@@ -44,10 +49,11 @@ export default function NewRegister(){
         e.preventDefault();
 
         var day = data.data.split('T')[0];
-        data.inicio = data.inicio ? `${day} ${data.inicio}:00Z` : '';
-        data.saida = data.saida ? `${day} ${data.saida}:00Z` : '';
-        data.retorno = data.retorno ? `${day} ${data.retorno}:00Z` : '';
-        data.fim = data.fim ? `${day} ${data.fim}:00Z` : '';
+        data.inicio = data.inicio ? `${day} ${data.inicio}:00` : '';
+        data.saida = data.saida ? `${day} ${data.saida}:00` : '';
+        data.retorno = data.retorno ? `${day} ${data.retorno}:00` : '';
+        data.fim = data.fim ? `${day} ${data.fim}:00` : '';
+        data.user_id = currentID;
         
         api.post('/horas', data, {
             headers: {

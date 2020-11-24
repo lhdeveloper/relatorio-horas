@@ -75,11 +75,11 @@ export default function EditRegister(props){
 
         var day = data.data.split('T')[0];
         
-        // formatando os valores vindos do banco pra ser exibido nos campos
-        data.inicio = `${day} ${data.inicio}:00Z`;
-        data.saida = `${day} ${data.saida}:00Z`;
-        data.retorno = `${day} ${data.retorno}:00Z`;
-        data.fim = `${day} ${data.fim}:00Z`;
+        data.inicio = `${day} ${data.inicio}:00`;
+        data.saida = `${day} ${data.saida}:00`;
+        data.retorno = `${day} ${data.retorno}:00`;
+        data.fim = `${day} ${data.fim}:00`;
+        data.user_id = currentID;
         
         api.put(`/horas/${currentID}`, data, {
             headers: {

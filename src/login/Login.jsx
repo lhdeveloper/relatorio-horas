@@ -35,6 +35,7 @@ export default function Login() {
                     const dadosUser = JSON.stringify(res.data);
                     localStorage.setItem('infos-user', dadosUser);
                     localStorage.setItem('last-access', moment().format('YYYY-MM-DD HH:mm:ss'))
+                    localStorage.setItem('expired-access', moment().add(10, 'hours').format('YYYY-MM-DD HH:mm:ss'));
                     history.push("/");
                 })
             }
