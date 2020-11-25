@@ -5,7 +5,7 @@ const api = axios.create({
     // baseURL: 'http://localhost:3333'
 });
 
-api.use(cors())
+api.use(cors());
 
 api.interceptors.request.use(async (config) => {
     try {
