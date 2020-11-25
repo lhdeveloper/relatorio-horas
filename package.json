@@ -12,6 +12,7 @@
     "axios": "^0.21.0",
     "bootstrap": "^4.5.3",
     "cloudinary-react": "^1.6.8",
+    "cors": "^2.8.5",
     "date-fns": "^2.16.1",
     "date-fns-tz": "^1.0.12",
     "firebase": "^8.1.1",
