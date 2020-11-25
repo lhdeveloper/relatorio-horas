@@ -98,29 +98,27 @@ export default function NewRegister(){
                         <form onSubmit={saveItem}>
                             <div className="form-group">
                                 <div className="row">
-                                    <div className="col">
-                                        <div className="form-group">
-                                            <label className="text-uppercase font-weight-bold">Data <span className="text-danger">*</span></label>
+                                    <div className="col-12 col-sm-auto">
+                                        <label className="text-uppercase font-weight-bold">Data <span className="text-danger">*</span></label>
                                             <input type="date" name="data" value={data.data} onChange={handleChange} className="form-control" ref={register({ required: true })} />
                                             {errors.data && <p className="text-danger mt-2">{errors.data.message}</p>}
-                                        </div>
                                     </div>
-                                    <div className="col">
+                                    <div className="col-12 col-sm-auto">
                                         <label className="text-uppercase font-weight-bold">Entrada</label>
                                         <input type="time" name="inicio" value={data.inicio} onChange={handleChange} ref={register({ required: false })} 
                                                 className="form-control" />
                                     </div>
-                                    <div className="col">
+                                    <div className="col-12 col-sm-auto">
                                         <label className="text-uppercase font-weight-bold">Saida Almoço</label>
                                         <input type="time" name="saida" value={data.saida} onChange={handleChange} ref={register({ required: false })} 
                                                 className="form-control" />
                                     </div>
-                                    <div className="col">
+                                    <div className="col-12 col-sm-auto">
                                         <label className="text-uppercase font-weight-bold">Retorno Almoço</label>
                                         <input type="time" name="retorno" value={data.retorno} onChange={handleChange} ref={register({ required: false })} 
                                                 className="form-control"  />
                                     </div>
-                                    <div className="col">
+                                    <div className="col-12 col-sm-auto">
                                         <label className="text-uppercase font-weight-bold">Saida </label>
                                         <input type="time" name="fim" value={data.fim} onChange={handleChange} ref={register({ required: false })} 
                                                 className="form-control" />

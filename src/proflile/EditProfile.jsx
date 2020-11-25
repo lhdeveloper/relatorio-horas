@@ -221,7 +221,7 @@ export default function EditProfile() {
                                             <h2 className="mb-3">Editar Perfil</h2>
                                             <div className="form-group">
                                                 <div className="row">
-                                                    <div className="col">
+                                                    <div className="col-12 col-sm-auto">
                                                         <label className="d-block font-weight-bold">Nome</label>
                                                         <input type="text" 
                                                                 name="nome" 
@@ -230,7 +230,7 @@ export default function EditProfile() {
                                                                 onChange={handleChange} 
                                                         />
                                                     </div>
-                                                    <div className="col">
+                                                    <div className="col-12 col-sm-auto">
                                                         <label className="d-block font-weight-bold">Sobrenome</label>
                                                         <input type="text" 
                                                                 name="sobrenome" 
@@ -239,7 +239,7 @@ export default function EditProfile() {
                                                                 onChange={handleChange}
                                                         />
                                                     </div>
-                                                    <div className="col">
+                                                    <div className="col-12 col-sm-auto">
                                                         <label className="d-block font-weight-bold">E-mail</label>
                                                         <input type="text" 
                                                                 name="email" 
@@ -252,7 +252,7 @@ export default function EditProfile() {
                                             </div>
                                             <div className="form-group">
                                                 <div className="row">
-                                                    <div className="col">
+                                                    <div className="col-12 col-sm-auto">
                                                         <label className="d-block font-weight-bold">Idade</label>
                                                         <input type="text" 
                                                                 name="idade" 
@@ -261,7 +261,7 @@ export default function EditProfile() {
                                                                 onChange={handleChange}
                                                         />
                                                     </div>
-                                                    <div className="col">
+                                                    <div className="col-12 col-sm-auto">
                                                         <label className="d-block font-weight-bold">Cidade</label>
                                                         <input type="text" 
                                                                 name="cidade" 
@@ -270,7 +270,7 @@ export default function EditProfile() {
                                                                 onChange={handleChange}
                                                         />
                                                     </div>
-                                                    <div className="col">
+                                                    <div className="col-12 col-sm-auto">
                                                         <label className="d-block font-weight-bold">Celular</label>
                                                         <InputMask className="form-control" mask="(99) 99999-9999" value={data.telefone} onChange={handleChange} />
                                                         {/* <input type="text" 
@@ -284,7 +284,7 @@ export default function EditProfile() {
                                             </div>
                                             <div className="form-group">
                                                 <div className="row">
-                                                    <div className="col">
+                                                    <div className="col-12 col-sm-auto">
                                                         <label className="d-block font-weight-bold">Cargo</label>
                                                         <input type="text" 
                                                                 name="cargo" 
@@ -293,7 +293,7 @@ export default function EditProfile() {
                                                                 onChange={handleChange}
                                                         />
                                                     </div>
-                                                    <div className="col">
+                                                    <div className="col-12 col-sm-auto">
                                                         <label className="d-block font-weight-bold">Valor Hora</label>
                                                         <input type="text" 
                                                                 name="valor_hora" 
