@@ -164,7 +164,7 @@ export default function RelatorioGeral(){
                             <tbody>
                                 {relatorios.map(item => (
                                     <tr key={item.id}>
-                                        <th scope="row">{ moment(item.data).format('DD/MM/YYYY') }</th>
+                                        <td>{ moment(item.data).format('DD/MM/YYYY') }</td>
                                         <td>{ item.inicio ? moment(item.inicio).format('HH:mm') : '' }</td>
                                         <td className="d-none d-md-table-cell">{ item.saida ? moment(item.saida).format('HH:mm') : '' }</td>
                                         <td className="d-none d-md-table-cell">{ item.retorno ? moment(item.retorno).format('HH:mm') : '' }</td>
