@@ -100,7 +100,7 @@ export default function EditProfile() {
         formData.append('file', imageUploaded);
         formData.append('upload_preset', 'zcbttm6s');
 
-        api.post(`http://api.cloudinary.com/v1_1/${cloudinary_name}/image/upload`, formData)
+        api.post(`https://api.cloudinary.com/v1_1/${cloudinary_name}/image/upload`, formData)
             .then((response) => {
                 if(response.status === 200){
                     setData({
