@@ -48,7 +48,7 @@ export default function EditProfile() {
     useEffect(() => {
         api.get(`/users/view/${currentID}`, {
             headers: {
-                'Authorization': `Bearer ${accessToken}`
+                'Authorization': `Bearer ${accessToken}`,
             }
         }).then((response) => {
             if(response.status === 200){
@@ -100,7 +100,11 @@ export default function EditProfile() {
         formData.append('file', imageUploaded);
         formData.append('upload_preset', 'zcbttm6s');
 
-        api.post(`https://api.cloudinary.com/v1_1/${cloudinary_name}/image/upload`, formData)
+        api.post(`https://api.cloudinary.com/v1_1/${cloudinary_name}/image/upload`, formData, {
+            headers: {
+                'Access-Control-Allow-Headers': '*'
+            }
+        })
             .then((response) => {
                 if(response.status === 200){
                     setData({
