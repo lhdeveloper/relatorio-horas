@@ -1,11 +1,9 @@
 import axios from 'axios';
-import cors from 'cors';
+
 const api = axios.create({
     baseURL: 'https://api-relatorio-horas-me.umbler.net/'
     // baseURL: 'http://localhost:3333'
 });
-
-api.use(cors());
 
 api.interceptors.request.use(async (config) => {
     try {
