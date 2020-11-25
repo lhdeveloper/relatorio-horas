@@ -47,26 +47,6 @@ export default function Login() {
                 allowOutsideClick: false
             })
         })
-
-        // pegando o token do localstorage
-        //const accessToken = localStorage.getItem('app-token');
-
-        // //pegando os dados do user logado
-        // api.get(`/users/view/${currentID}`, {
-        //     headers: {
-        //         'Authorization': `Bearer ${accessToken}`
-        //     }
-        // }).then((response) => {
-        //     if(response.status === 200){
-        //         setData(response.data);
-        //     }
-        // }).catch((error) => {
-        //     return Swal.fire({
-        //         icon:`error`,
-        //         title: `oops!`,
-        //         text: `Ocorreu um erro ao carregar dados. Motivo: ${error}`
-        //     })
-        // })
     }
     
 

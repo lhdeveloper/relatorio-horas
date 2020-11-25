@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, useHistory } from 'react-hook-form';
 import Swal from 'sweetalert2';
 import api from '../api';
 import '../sass/Login.scss';
@@ -14,7 +14,7 @@ function initialState(){
 }
 
 const Register = () => {
-
+    let history = useHistory();
     const { register, handleSubmit, errors } = useForm();
 
     const [values, setValues] = useState(initialState);
@@ -30,11 +30,10 @@ const Register = () => {
                 icon: 'success',
                 title: `Obrigado!`,
                 text: `Seu cadastro foi efetuado com sucesso. Você será redirecionado para o seu perfil.`,
-                allowOutsideClick: false
-            }).then((confirm) => {
-                if(confirm.results){
-                    window.location.href = '/profile'
-                }
+                allowOutsideClick: false,
+                timer: 6000,
+            }).then(() => {
+                history.push("/profile");
             })
         })
     }
