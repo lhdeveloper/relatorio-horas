@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 const api = axios.create({
-    // baseURL: 'https://api-relatorio-horas-me.umbler.net/'
-    baseURL: 'http://localhost:3333'
+    baseURL: 'https://api-relatorio-horas-me.umbler.net/'
+    // baseURL: 'http://localhost:3333'
 });
 
 api.interceptors.request.use(async (config) => {
