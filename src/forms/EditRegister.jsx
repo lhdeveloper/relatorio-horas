@@ -13,8 +13,13 @@ import api from '../api';
 
 export default function EditRegister(props){
 
-    // current id
+    // current id item
     const currentID = props.match.params.id;
+    
+    // pegando do localStorage os primeiros dados do user logado
+    const getInfosUser = localStorage.getItem('infos-user');
+    const infosUser = JSON.parse(getInfosUser);
+    const currentIDUser = infosUser.id;
 
     //forms validation
     //const { register, handleSubmit, errors } = useForm();
@@ -41,7 +46,6 @@ export default function EditRegister(props){
             }
         }).then((response) => {
             // modificando os campos de hora pra serem exibidos
-            debugger
             let modifyObj = response.data;
             modifyObj.data = `${moment(modifyObj.data).format('YYYY-MM-DD')}`
             modifyObj.inicio = `${moment(modifyObj.inicio).format(`HH:mm`)}`;
@@ -74,14 +78,30 @@ export default function EditRegister(props){
         e.preventDefault();
 
         var day = data.data.split('T')[0];
-        
+
         data.inicio = `${day} ${data.inicio}:00`;
-        data.saida = `${day} ${data.saida}:00`;
-        data.retorno = `${day} ${data.retorno}:00`;
-        data.fim = `${day} ${data.fim}:00`;
-        data.user_id = currentID;
+
+        if(data.saida !== 'Invalid date'){
+            data.saida = `${day} ${data.saida}:00`;
+        }else {
+            data.saida = ''
+        }
+
+        if(data.retorno  !== 'Invalid date'){
+            data.retorno = `${day} ${data.retorno}:00`;
+        }else {
+            data.retorno = '';
+        }
+
+        if(data.fim !== 'Invalid date'){
+            data.fim = `${day} ${data.fim}:00`;
+        }else {
+            data.fim = '';
+        }
+
+        data.user_id = currentIDUser;
         
-        api.put(`/horas/${currentID}`, data, {
+        api.put(`/horas/${currentID}/${currentIDUser}`, data, {
             headers: {
                 'Authorization': `Bearer ${accessToken}`
             }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useForm, useHistory } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import api from '../api';
 import '../sass/Login.scss';
