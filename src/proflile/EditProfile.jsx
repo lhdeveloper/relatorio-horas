@@ -102,7 +102,7 @@ export default function EditProfile() {
 
         api.post(`https://api.cloudinary.com/v1_1/${cloudinary_name}/image/upload`, formData, {
             headers: {
-                'Access-Control-Allow-Headers': '*'
+                'Access-Control-Allow-Origin': '*'
             }
         })
             .then((response) => {
