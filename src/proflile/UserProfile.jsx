@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Image, Transformation } from 'cloudinary-react';
+
 // import Swal from 'sweetalert2';
 import Helmet from 'react-helmet';
 import moment from 'moment';
@@ -28,6 +30,9 @@ export default function UserProfile() {
     const [currentUser, setCurrentUser] = useState({});
     const accessToken = localStorage.getItem('app-token');
     const [totalHoras, setTotalHoras] = useState(0);
+
+    //CLOUDINARY INFOS
+    const cloudinary_name = `dg7jnpdp7`;
 
     // carregando dados do user logado
     useEffect(() => {
@@ -87,7 +92,9 @@ export default function UserProfile() {
                                                             </div>
                                                         </div>
                                                     )}
-                                                    <img src={currentUser.image} alt="" className="w-100" />
+                                                    <Image cloudName={cloudinary_name} publicId={currentUser.image} loading="lazy" className="mx-auto">
+                                                        <Transformation height="220" width="220" crop="fill" />
+                                                    </Image>
                                                 </picture>
                                             </div>
                                             <ul className="list-group list-group-flush">

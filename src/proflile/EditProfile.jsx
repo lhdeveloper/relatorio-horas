@@ -199,13 +199,13 @@ export default function EditProfile() {
                                             <div className="picture mb-3 bg-light p-3">
                                                 {previewSource && (
                                                     <picture>
-                                                        <Image cloudName={cloudinary_name} name="image" publicId={previewSource} loading="lazy">
+                                                        <Image cloudName={cloudinary_name} name="image" publicId={previewSource} loading="lazy" className="mx-auto d-block">
                                                             <Transformation height="220" width="220" crop="fill" />
                                                         </Image>
                                                     </picture>
                                                 )}
                                                 {!previewSource && (
-                                                    <Image cloudName={cloudinary_name} publicId={data.image} loading="lazy">
+                                                    <Image cloudName={cloudinary_name} publicId={data.image} loading="lazy" className="mx-auto">
                                                         <Transformation height="220" width="220" crop="fill" />
                                                     </Image>
                                                 )}
@@ -217,7 +217,7 @@ export default function EditProfile() {
                                                     maxFileSize={5242880}
                                                     name="image"
                                                     buttonText="Carregar Imagem"
-                                                    label="Tamanho Máximo: 5MB"
+                                                    label="Tamanho Máximo: 5mb (.jpg, .jpeg e .png)"
                                                     fileSizeError="Arquivo muito grande"
                                                     fileTypeError="Tipo de arquivo não suportado"
                                                 />  
