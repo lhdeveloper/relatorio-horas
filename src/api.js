@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'https://api-relatorio-horas-me.umbler.net/'
+    baseURL: 'http://external.hatto.in:3333/'
     // baseURL: 'http://localhost:3333'
 });
 
