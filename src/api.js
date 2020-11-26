@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'https://external.hatto.in:3333'
+    baseURL: 'https://external.hatto.in'
     // baseURL: 'http://localhost:3333'
 });
 
