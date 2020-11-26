@@ -23,6 +23,7 @@ const Register = () => {
     const CreateUser = values => {
         api.post('/users/new', values).then((resp) => {
             const { data } = resp
+            debugger
             if(data){
                 localStorage.setItem('app-token', data.token)
             }

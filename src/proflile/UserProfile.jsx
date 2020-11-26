@@ -83,15 +83,6 @@ export default function UserProfile() {
                                         <div className="col-sm-3">
                                             <div className="picture">
                                                 <picture className="w-100 mb-3">
-                                                    {!currentUser.image && (
-                                                        <div className="d-flex justify-content-center">
-                                                            <div className="loading">
-                                                                <div className="spinner-border" role="status">
-                                                                    <span className="sr-only">Loading...</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    )}
                                                     <Image cloudName={cloudinary_name} publicId={currentUser.image} loading="lazy" className="mx-auto">
                                                         <Transformation height="220" width="220" crop="fill" />
                                                     </Image>

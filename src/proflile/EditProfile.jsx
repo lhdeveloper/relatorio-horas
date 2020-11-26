@@ -279,12 +279,7 @@ export default function EditProfile() {
                                                     <div className="col-12 col-sm-auto">
                                                         <label className="d-block font-weight-bold">Celular</label>
                                                         <InputMask className="form-control" mask="(99) 99999-9999" value={data.telefone} onChange={handleChange} />
-                                                        {/* <input type="text" 
-                                                                name="telefone" 
-                                                                className="form-control" 
-                                                                value={data.telefone} 
-                                                                onChange={handleChange}
-                                                        /> */}
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -315,7 +310,7 @@ export default function EditProfile() {
                                                 <CKEditor
                                                     editor={ ClassicEditor } 
                                                     onChange={handleCkeditor}
-                                                    data={data.resumo}
+                                                    data={data.resumo ? data.resumo : 'Escreva um pouco sobre você.'}
                                                     className="form-control"
                                                 />       
                                             </div>

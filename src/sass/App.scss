@@ -172,6 +172,7 @@ main {
         .picture {
             picture {
                 width:100%;
+                min-height: 220px;
                 display: grid;
                 padding:.5em;
                 background:#f1f1f1;
