@@ -213,7 +213,7 @@ export default function EditProfile() {
                                                 <ImageUploader
                                                     withIcon={false}
                                                     onChange={onDrop}
-                                                    imgExtension={[".jpg", ".gif", ".png", ".gif"]}
+                                                    imgExtension={[".jpg", "jpeg", ".png"]}
                                                     maxFileSize={5242880}
                                                     name="image"
                                                     buttonText="Carregar Imagem"
