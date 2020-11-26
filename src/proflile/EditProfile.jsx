@@ -21,6 +21,7 @@ export default function EditProfile() {
     // pegando do localStorage os primeiros dados do user logado
     const getInfosUser = localStorage.getItem('infos-user');
     const infosUser = JSON.parse(getInfosUser);
+    const currentUserName = infosUser.username;
     const currentID = infosUser.id;
 
     // user token
@@ -47,7 +48,7 @@ export default function EditProfile() {
     
     // carregando os dados do usuario logado
     useEffect(() => {
-        api.get(`/users/view/${currentID}`, {
+        api.get(`/users/view/${currentUserName}/${currentID}`, {
             headers: {
                 'Authorization': `Bearer ${accessToken}`,
             }
@@ -65,7 +66,7 @@ export default function EditProfile() {
             })
         })
         
-    }, [currentID, accessToken])
+    }, [currentID, accessToken, currentUserName])
 
     // update no data conforme os campos são modificados
     const handleChange = (e) => {

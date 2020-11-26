@@ -135,29 +135,29 @@ export default function EditRegister(props){
                         <form onSubmit={updateItem}>
                             <div className="form-group">
                                 <div className="row">
-                                    <div className="col-12 col-sm-4">
+                                    <div className="col-12 col-sm-auto">
                                         <div className="form-group">
                                             <label className="text-uppercase font-weight-bold">Data <span className="text-danger">*</span></label>
                                             <input type="date" name="data" value={data.data} onChange={handleChange}
                                                     className="form-control" />
                                         </div>
                                     </div>
-                                    <div className="col">
+                                    <div className="col-12 col-sm-auto">
                                         <label className="text-uppercase font-weight-bold">Entrada <span className="text-danger">*</span></label>
                                         <input type="time" name="inicio" value={data.inicio}
                                                 className="form-control" onChange={handleChange} />
                                     </div>
-                                    <div className="col">
+                                    <div className="col-12 col-sm-auto">
                                         <label className="text-uppercase font-weight-bold">Saida Almoço <span className="text-danger">*</span></label>
                                         <input type="time" name="saida" value={data.saida}
                                                 className="form-control" onChange={handleChange} />
                                     </div>
-                                    <div className="col">
+                                    <div className="col-12 col-sm-auto">
                                         <label className="text-uppercase font-weight-bold">Retorno Almoço <span className="text-danger">*</span></label>
                                         <input type="time" name="retorno" value={data.retorno}
                                                 className="form-control" onChange={handleChange} />
                                     </div>
-                                    <div className="col">
+                                    <div className="col-12 col-sm-auto">
                                         <label className="text-uppercase font-weight-bold">Saida <span className="text-danger">*</span></label>
                                         <input type="time" name="fim" value={data.fim}
                                                 className="form-control" onChange={handleChange} />
@@ -168,12 +168,8 @@ export default function EditRegister(props){
                                 <label className="text-uppercase font-weight-bold">Obs:</label>
                                 <input type="text" name="obs" className="form-control" value={data.obs} onChange={handleChange}/>
                             </div>
-                            <div className="form-group text-center mt-4 d-none">
-                                <h3>Total de horas no dia:</h3>
-                                <p className="font-weight-bold"></p>
-                            </div>
                             <div className="form-group justify-content-between">
-                                <button title="Cadastrar" className="btn btn-success mr-2 text-white">Cadastrar</button>
+                                <button title="Cadastrar" className="btn btn-success mr-2 text-white">Alterar</button>
                                 <Link to="/" title="Cancelar" className="btn btn-danger text-white">Cancelar</Link>
                             </div>
                         </form>
