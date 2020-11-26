@@ -3,10 +3,11 @@ import { Link, useHistory } from 'react-router-dom';
 import Helmet from 'react-helmet';
 import Swal from 'sweetalert2';
 import ImageUploader from 'react-images-upload';
-import { Image } from 'cloudinary-react';
+import { Image, Transformation } from 'cloudinary-react';
 import InputMask from 'react-input-mask';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import axios from 'axios';
 
 // importando containers
 import Header from '../containers/Header';
@@ -100,11 +101,7 @@ export default function EditProfile() {
         formData.append('file', imageUploaded);
         formData.append('upload_preset', 'zcbttm6s');
 
-        api.post(`https://api.cloudinary.com/v1_1/${cloudinary_name}/image/upload`, formData, {
-            headers: {
-                'Access-Control-Allow-Origin': '*'
-            }
-        })
+        axios.post(`https://api.cloudinary.com/v1_1/${cloudinary_name}/image/upload`, formData)
             .then((response) => {
                 if(response.status === 200){
                     setData({
@@ -204,7 +201,8 @@ export default function EditProfile() {
                                                     </picture>
                                                 )}
                                                 {!previewSource && (
-                                                    <Image cloudName={cloudinary_name} publicId={data.image} loading="lazy"className="img-fluid">
+                                                    <Image cloudName={cloudinary_name} publicId={data.image} loading="lazy">
+                                                        <Transformation height="220" width="220" crop="fill" />
                                                     </Image>
                                                 )}
                                                 
