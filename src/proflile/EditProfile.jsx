@@ -101,13 +101,14 @@ export default function EditProfile() {
         const formData = new FormData();
         formData.append('file', imageUploaded);
         formData.append('upload_preset', 'zcbttm6s');
-
+        debugger
         axios.post(`https://api.cloudinary.com/v1_1/${cloudinary_name}/image/upload`, formData)
             .then((response) => {
+                debugger
                 if(response.status === 200){
                     setData({
                         ...data,
-                        image:response.data.url
+                        image:response.data.secure_url
                     })
                     // Swal.fire({
                     //     icon: `success`,
@@ -198,7 +199,9 @@ export default function EditProfile() {
                                             <div className="picture mb-3 bg-light p-3">
                                                 {previewSource && (
                                                     <picture>
-                                                        <img src={previewSource} alt="" className="w-100" name="image" onChange={handleChange} />
+                                                        <Image cloudName={cloudinary_name} name="image" publicId={previewSource} loading="lazy">
+                                                            <Transformation height="220" width="220" crop="fill" />
+                                                        </Image>
                                                     </picture>
                                                 )}
                                                 {!previewSource && (

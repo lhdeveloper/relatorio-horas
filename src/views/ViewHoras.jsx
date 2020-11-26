@@ -147,7 +147,7 @@ export default function RelatorioGeral(){
                         </>
                         
                     )}
-                    {relatorios.length !== 0 && (
+                    {relatorios.length > 0 && (
                         <table className="table table-striped m-0">
                             <thead className="thead-light text-uppercase">
                                 <tr>
