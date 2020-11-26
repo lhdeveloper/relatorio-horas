@@ -43,7 +43,7 @@ export default function Login() {
             Swal.fire({
                 icon: `error`,
                 title: `Oops!`,
-                html: `Verifique seu e-mail e senha.`,
+                html: `Sentimos muito, ocorreu um erro interno no Servidor.<br/><small>tente novamente dentro de alguns instantes.</small>`,
                 allowOutsideClick: false
             })
         })
