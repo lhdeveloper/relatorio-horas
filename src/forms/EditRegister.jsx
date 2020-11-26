@@ -135,7 +135,7 @@ export default function EditRegister(props){
                         <form onSubmit={updateItem}>
                             <div className="form-group">
                                 <div className="row">
-                                    <div className="col">
+                                    <div className="col-12 col-sm-4">
                                         <div className="form-group">
                                             <label className="text-uppercase font-weight-bold">Data <span className="text-danger">*</span></label>
                                             <input type="date" name="data" value={data.data} onChange={handleChange}
