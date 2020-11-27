@@ -32,6 +32,21 @@
 
     .card {
 
+        &.disabled {
+            position:relative;
+
+            &::before {
+                content: '';
+                display:block;
+                width:100%;
+                height:100%;
+                background:rgba(236, 236, 236, .5);
+                top:0px;
+                left:0px;
+                position:absolute;
+            }
+        }
+        
         color:$primary;
         form {
             label {

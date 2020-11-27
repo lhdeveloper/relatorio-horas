@@ -20,24 +20,31 @@ export default function Login() {
     const { register, handleSubmit, errors } = useForm();
 
     const [values, setValues] = useState(initialState);
+    const [disableForm, setDisableForm] = useState(false);
 
     const LoginUser = values => {
         api.post('/login', values).then((resp) => {
-            const { data } = resp
+            const { data } = resp            
             if(data){
-                localStorage.setItem('app-token', data.token);
-                const token = localStorage.getItem('app-token');
-                api.get(`/me`, {
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                    }
-                }).then((res) => {
-                    const dadosUser = JSON.stringify(res.data);
-                    localStorage.setItem('infos-user', dadosUser);
-                    localStorage.setItem('last-access', moment().format('YYYY-MM-DD HH:mm:ss'))
-                    localStorage.setItem('expired-access', moment().add(10, 'hours').format('YYYY-MM-DD HH:mm:ss'));
-                    history.push("/");
-                })
+                if(data.status !== 200){
+                    setDisableForm(true);
+
+                }else {
+                    localStorage.setItem('app-token', data.token);
+                    const token = localStorage.getItem('app-token');
+                    api.get(`/me`, {
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    }).then((res) => {
+                        const dadosUser = JSON.stringify(res.data);
+                        localStorage.setItem('infos-user', dadosUser);
+                        localStorage.setItem('last-access', moment().format('YYYY-MM-DD HH:mm:ss'))
+                        localStorage.setItem('expired-access', moment().add(10, 'hours').format('YYYY-MM-DD HH:mm:ss'));
+                        history.push("/");
+                    })
+                }
+                
             }
         }).catch((err) => {
             Swal.fire({
@@ -63,7 +70,7 @@ export default function Login() {
         <div id="login" className="custom-bg" style={{backgroundImage: `url('/bg-login.jpg')` }}>
             <Helmet title="Login | Relatório de Horas" />
             <div className="d-flex h-100 justify-content-center align-items-center">
-                <div className="card d-flex my-auto mx-auto">
+                <div className={`card d-flex my-auto mx-auto ${disableForm === true ? 'disabled' : ''}`}>
                     <div className="card-body">
                         <div className="logo d-flex font-weight-bold">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-alarm-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
