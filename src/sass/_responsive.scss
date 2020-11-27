@@ -43,6 +43,17 @@
         }
     }
 
+    //view
+    .mobile {
+        &.card {
+            .card {
+                box-shadow: none!important;
+                border-radius: 0px;
+                border-bottom:1px solid #f1f1f1;
+            }
+        }
+    }
+
     //footer
     footer {
         .copyright,

@@ -201,101 +201,109 @@ export default function RelatorioGeral(){
             {/* se for mobile */}
 
             {isMobile && (
-                <div className="mobile">
-                    {!relatorios.length && (
-                        <>
-                            <ContentLoader 
-                                speed={3}
-                                width={600}
-                                height={52}
-                                viewBox="0 0 600 52"
-                                backgroundColor="#f3f3f3"
-                                foregroundColor="#ecebeb"
-                            >
-                                <rect x="48" y="8" rx="3" ry="3" width="88" height="6" /> 
-                                <rect x="48" y="26" rx="3" ry="3" width="52" height="6" /> 
-                                <rect x="0" y="56" rx="3" ry="3" width="410" height="6" /> 
-                                <rect x="0" y="72" rx="3" ry="3" width="380" height="6" /> 
-                                <rect x="0" y="88" rx="3" ry="3" width="178" height="6" /> 
-                                <circle cx="20" cy="20" r="20" />
-                            </ContentLoader>
-                            <ContentLoader 
-                                speed={3}
-                                width={600}
-                                height={52}
-                                viewBox="0 0 600 52"
-                                backgroundColor="#f3f3f3"
-                                foregroundColor="#ecebeb"
-                            >
-                                <rect x="48" y="8" rx="3" ry="3" width="88" height="6" /> 
-                                <rect x="48" y="26" rx="3" ry="3" width="52" height="6" /> 
-                                <rect x="0" y="56" rx="3" ry="3" width="410" height="6" /> 
-                                <rect x="0" y="72" rx="3" ry="3" width="380" height="6" /> 
-                                <rect x="0" y="88" rx="3" ry="3" width="178" height="6" /> 
-                                <circle cx="20" cy="20" r="20" />
-                            </ContentLoader>
-                            <ContentLoader 
-                                speed={3}
-                                width={600}
-                                height={52}
-                                viewBox="0 0 600 52"
-                                backgroundColor="#f3f3f3"
-                                foregroundColor="#ecebeb"
-                            >
-                                <rect x="48" y="8" rx="3" ry="3" width="88" height="6" /> 
-                                <rect x="48" y="26" rx="3" ry="3" width="52" height="6" /> 
-                                <rect x="0" y="56" rx="3" ry="3" width="410" height="6" /> 
-                                <rect x="0" y="72" rx="3" ry="3" width="380" height="6" /> 
-                                <rect x="0" y="88" rx="3" ry="3" width="178" height="6" /> 
-                                <circle cx="20" cy="20" r="20" />
-                            </ContentLoader>
-                            <ContentLoader 
-                                speed={3}
-                                width={600}
-                                height={52}
-                                viewBox="0 0 600 52"
-                                backgroundColor="#f3f3f3"
-                                foregroundColor="#ecebeb"
-                            >
-                                <rect x="48" y="8" rx="3" ry="3" width="88" height="6" /> 
-                                <rect x="48" y="26" rx="3" ry="3" width="52" height="6" /> 
-                                <rect x="0" y="56" rx="3" ry="3" width="410" height="6" /> 
-                                <rect x="0" y="72" rx="3" ry="3" width="380" height="6" /> 
-                                <rect x="0" y="88" rx="3" ry="3" width="178" height="6" /> 
-                                <circle cx="20" cy="20" r="20" />
-                            </ContentLoader>
-                        </>
-                        
-                    )}
+                <div className="mobile card">
+                    <div className="card-body">
+                        {!relatorios.length && (
+                            <>
+                                <ContentLoader 
+                                    speed={3}
+                                    width={600}
+                                    height={52}
+                                    viewBox="0 0 600 52"
+                                    backgroundColor="#f3f3f3"
+                                    foregroundColor="#ecebeb"
+                                >
+                                    <rect x="48" y="8" rx="3" ry="3" width="88" height="6" /> 
+                                    <rect x="48" y="26" rx="3" ry="3" width="52" height="6" /> 
+                                    <rect x="0" y="56" rx="3" ry="3" width="410" height="6" /> 
+                                    <rect x="0" y="72" rx="3" ry="3" width="380" height="6" /> 
+                                    <rect x="0" y="88" rx="3" ry="3" width="178" height="6" /> 
+                                    <circle cx="20" cy="20" r="20" />
+                                </ContentLoader>
+                                <ContentLoader 
+                                    speed={3}
+                                    width={600}
+                                    height={52}
+                                    viewBox="0 0 600 52"
+                                    backgroundColor="#f3f3f3"
+                                    foregroundColor="#ecebeb"
+                                >
+                                    <rect x="48" y="8" rx="3" ry="3" width="88" height="6" /> 
+                                    <rect x="48" y="26" rx="3" ry="3" width="52" height="6" /> 
+                                    <rect x="0" y="56" rx="3" ry="3" width="410" height="6" /> 
+                                    <rect x="0" y="72" rx="3" ry="3" width="380" height="6" /> 
+                                    <rect x="0" y="88" rx="3" ry="3" width="178" height="6" /> 
+                                    <circle cx="20" cy="20" r="20" />
+                                </ContentLoader>
+                                <ContentLoader 
+                                    speed={3}
+                                    width={600}
+                                    height={52}
+                                    viewBox="0 0 600 52"
+                                    backgroundColor="#f3f3f3"
+                                    foregroundColor="#ecebeb"
+                                >
+                                    <rect x="48" y="8" rx="3" ry="3" width="88" height="6" /> 
+                                    <rect x="48" y="26" rx="3" ry="3" width="52" height="6" /> 
+                                    <rect x="0" y="56" rx="3" ry="3" width="410" height="6" /> 
+                                    <rect x="0" y="72" rx="3" ry="3" width="380" height="6" /> 
+                                    <rect x="0" y="88" rx="3" ry="3" width="178" height="6" /> 
+                                    <circle cx="20" cy="20" r="20" />
+                                </ContentLoader>
+                                <ContentLoader 
+                                    speed={3}
+                                    width={600}
+                                    height={52}
+                                    viewBox="0 0 600 52"
+                                    backgroundColor="#f3f3f3"
+                                    foregroundColor="#ecebeb"
+                                >
+                                    <rect x="48" y="8" rx="3" ry="3" width="88" height="6" /> 
+                                    <rect x="48" y="26" rx="3" ry="3" width="52" height="6" /> 
+                                    <rect x="0" y="56" rx="3" ry="3" width="410" height="6" /> 
+                                    <rect x="0" y="72" rx="3" ry="3" width="380" height="6" /> 
+                                    <rect x="0" y="88" rx="3" ry="3" width="178" height="6" /> 
+                                    <circle cx="20" cy="20" r="20" />
+                                </ContentLoader>
+                            </>
+                            
+                        )}
 
-                    {relatorios.length > 0 && (
-                        <>
-                            {relatorios.map(item => (
-                                <div className="card mb-3" key={item.id}>
-                                    <div className="card-body">
-                                        <h4 className="card-title text-red">{moment(item.data).format('DD/MM')}</h4>
-                                        <div className="row">
-                                            <div className="col">
-                                                <div>{item.inicio ? moment(item.inicio).format('HH:mm') : ''}</div>
-                                            </div>
-                                            <div className="col">
-                                                <div>{item.saida ? moment(item.saida).format('HH:mm') : ''}</div>
-                                            </div>
-                                            <div className="col">
-                                                <div>{item.retorno ? moment(item.retorno).format('HH:mm') : ''}</div>
-                                            </div>
-                                            <div className="col">
-                                                <div>{item.saida ? moment(item.saida).format('HH:mm') : ''}</div>
-                                            </div>
-                                            <div className="col">
-                                                <div>{item.total}</div>
+                        {relatorios.length > 0 && (
+                            <>
+                                {relatorios.map(item => (
+                                    <div className="card mb-3" key={item.id}>
+                                        <div className="card-body">
+                                            <h4 className="card-title text-red">{moment(item.data).format('DD/MM')}</h4>
+                                            <div className="row">
+                                                <div className="col">
+                                                    <smal className="font-weight-bold">Entrada</smal>
+                                                    <div>{item.inicio ? moment(item.inicio).format('HH:mm') : ''}</div>
+                                                </div>
+                                                <div className="col">
+                                                    <smal className="font-weight-bold">Saida</smal>
+                                                    <div>{item.saida ? moment(item.saida).format('HH:mm') : ''}</div>
+                                                </div>
+                                                <div className="col">
+                                                    <smal className="font-weight-bold">Retorno</smal>
+                                                    <div>{item.retorno ? moment(item.retorno).format('HH:mm') : ''}</div>
+                                                </div>
+                                                <div className="col">
+                                                    <smal className="font-weight-bold">Saida</smal>
+                                                    <div>{item.saida ? moment(item.saida).format('HH:mm') : ''}</div>
+                                                </div>
+                                                <div className="col-12 mt-3">
+                                                    <div className="bg-secondary text-white p-1">
+                                                        <smal className="font-weight-bold">Total de horas no Dia: {item.total}</smal>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            ))}
-                        </>
-                    )}
+                                ))}
+                            </>
+                        )}
+                    </div>
                 </div>
             )}
         </>
