@@ -20,6 +20,7 @@ import EditHoras from './forms/EditRegister';
 
 export default function Routes(){
     const PrivateRoute = (props) => {
+        debugger
         const isLogged = !!localStorage.getItem('app-token');
 
         return isLogged ? <Route { ...props} /> : <Redirect to="/welcome" />
