@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import Helmet from 'react-helmet';
 import Swal from 'sweetalert2';
 import ImageUploader from 'react-images-upload';
-import { Image, Transformation } from 'cloudinary-react';
+import { Image } from 'cloudinary-react';
 import InputMask from 'react-input-mask';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
@@ -53,10 +53,11 @@ export default function EditProfile() {
                 'Authorization': `Bearer ${accessToken}`,
             }
         }).then((response) => {
+            setLoading(true);
             if(response.status === 200){
                 setData(response.data);
-                setUserEmail(response.data.email)
-                
+                setUserEmail(response.data.email);
+                setLoading(false);                
             }
         }).catch((error) => {
             return Swal.fire({
@@ -82,11 +83,13 @@ export default function EditProfile() {
     }
 
     const [previewSource, setPreviewSource] = useState('');
+    const [loading, setLoading] = useState('');
 
     const onDrop = picture => {
         const file = picture[0];
         previewFile(file);
         fileUploadHandler(file);
+        setLoading(true)
     };
 
     const previewFile = (file) => {
@@ -102,18 +105,12 @@ export default function EditProfile() {
         axios.post(`https://api.cloudinary.com/v1_1/${cloudinary_name}/image/upload`, formData)
             .then((response) => {
                 if(response.status === 200){
+                    setLoading(false)
                     setData({
                         ...data,
                         image:response.data.secure_url
                     })
                     setPreviewSource(response.data.secure_url);
-                    // Swal.fire({
-                    //     icon: `success`,
-                    //     title: `Show!`,
-                    //     text: `Upload de imagem concluído com sucesso.`,
-                    //     showConfirmButton: false,
-                    //     timer: 2000
-                    // })
                 }
         }).catch((err) => {
             Swal.fire({
@@ -193,16 +190,22 @@ export default function EditProfile() {
                                 <div className="card-body">
                                     <div className="row">
                                         <div className="col-sm-3">
-                                            <div className="picture mb-3 bg-light p-3">
-                                                {previewSource ?
-                                                    <Image src={data.image} loading="lazy" className="mx-auto">
-                                                        <Transformation height="213" width="213" crop="fill" />
-                                                    </Image>
-                                                :   <Image cloudName={cloudinary_name} publicId={data.image} loading="lazy" className="mx-auto">
-                                                        <Transformation height="213" width="213" crop="fill" />
-                                                    </Image>
-                                                }
-                                                
+                                            <div className="picture mb-3">
+                                                <picture>
+                                                    {loading && (
+                                                        <div className="d-flex justify-content-center h-100 align-items-center loading">
+                                                            <div className="spinner-border" role="status">
+                                                            <span className="sr-only">Loading...</span>
+                                                            </div>
+                                                        </div>
+                                                    )}
+                                                    {previewSource ?
+                                                        <Image src={data.image} loading="lazy" className="w-100">
+                                                        </Image>
+                                                    :   <Image cloudName={cloudinary_name} publicId={data.image} loading="lazy" className="w-100">
+                                                        </Image>
+                                                    }
+                                                </picture>
                                                 <ImageUploader
                                                     withIcon={false}
                                                     onChange={onDrop}

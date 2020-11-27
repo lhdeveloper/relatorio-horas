@@ -18,6 +18,7 @@ export default function UserProfile() {
         
     window.onresize = function(event){
         if(event.currentTarget.innerWidth < 996){
+            debugger
             isMobile = true;
         }
     }
@@ -115,9 +116,9 @@ export default function UserProfile() {
                                     <div className="col-sm-9 infos">
                                         {isMobile && (
                                             <div className="picture">
-                                                <picture className="w-100 mb-3">
+                                                <picture className="w-50 mb-3">
                                                     {!currentUser.image && (
-                                                        <div className="d-flex justify-content-center">
+                                                        <div className="d-flex h-100 align-items-center justify-content-center">
                                                             <div className="loading">
                                                                 <div className="spinner-border" role="status">
                                                                     <span className="sr-only">Loading...</span>
@@ -125,7 +126,9 @@ export default function UserProfile() {
                                                             </div>
                                                         </div>
                                                     )}
-                                                    <img src={currentUser.image} alt="" className="w-100" />
+                                                    {currentUser.image && (
+                                                        <img src={currentUser.image} alt="" className="w-100" />
+                                                    )}
                                                 </picture>
                                             </div>
                                         )}

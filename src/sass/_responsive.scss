@@ -19,9 +19,16 @@
         }
     }
 
+
+    // login
+    #login,
+    #register {
+        height:100vh;
+    }
+
     //welcome
     #welcome {
-        padding:6em 0;
+        padding:3em 0;
         .presentation {
             h1{
                 font-size:3rem!important;
@@ -42,6 +49,13 @@
     main {
         section {
             padding:3em 0;
+        }
+    }
+
+    //welcome
+    #welcome {
+        .align-items-center {
+            height:100%;
         }
     }
 

@@ -49,7 +49,7 @@ const Register = () => {
     }
 
     return (
-        <div id="login-page" className="custom-bg" style={{backgroundImage: `url('/bg-login.jpg')` }}>
+        <div id="register" className="custom-bg" style={{backgroundImage: `url('/bg-login.jpg')` }}>
             <Helmet title="Cadastro | Relatório de Horas" />
             <div className="d-flex h-100 justify-content-center align-items-center">
                 <div className="card d-flex my-auto mx-auto">

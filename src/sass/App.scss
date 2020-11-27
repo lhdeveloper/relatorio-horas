@@ -174,15 +174,16 @@ main {
                 width:100%;
                 min-height: 220px;
                 display: grid;
-                padding:.5em;
-                background:#f1f1f1;
                 align-items: center;
                 position: relative;
 
                 .loading {
                     position: absolute;
-                    top:45%;
-                    z-index:1;
+                    top:50%;
+                    left:50%;
+                    transform: translate(-50%, -50%);
+                    color:$red;
+                    z-index:20;
                 }
                 img {
                     position: relative;

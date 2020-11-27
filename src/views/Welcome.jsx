@@ -59,8 +59,8 @@ export default function Welcome(){
     return (
         <>
             <div id="welcome" className="custom-bg" style={{backgroundImage: `url('/bg-login.jpg')`}}>
-                <div className="d-flex h-100 justify-content-center align-items-center">
-                    <div className="container">
+                <div className="d-flex align-items-center">
+                    <div className="container py-4">
                         <div className="row">
                             <div className="col-sm-8 presentation">
                                 <h1>Quer organizar seus registros de horas trabalhadas?</h1>

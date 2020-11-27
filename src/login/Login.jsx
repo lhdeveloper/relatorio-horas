@@ -60,7 +60,7 @@ export default function Login() {
     }
 
     return (
-        <div id="login-page" className="custom-bg" style={{backgroundImage: `url('/bg-login.jpg')` }}>
+        <div id="login" className="custom-bg" style={{backgroundImage: `url('/bg-login.jpg')` }}>
             <Helmet title="Login | Relatório de Horas" />
             <div className="d-flex h-100 justify-content-center align-items-center">
                 <div className="card d-flex my-auto mx-auto">
