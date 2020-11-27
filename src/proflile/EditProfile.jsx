@@ -195,9 +195,9 @@ export default function EditProfile() {
                                         <div className="col-sm-3">
                                             <div className="picture mb-3 bg-light p-3">
                                                 {previewSource ?
-                                                    <picture>
-                                                        <img src={previewSource} width="200px" height="200px" />
-                                                    </picture>
+                                                    <Image src={data.image} loading="lazy" className="mx-auto">
+                                                        <Transformation height="200" width="200" crop="fill" />
+                                                    </Image>
                                                 :   <Image cloudName={cloudinary_name} publicId={data.image} loading="lazy" className="mx-auto">
                                                         <Transformation height="200" width="200" crop="fill" />
                                                     </Image>
