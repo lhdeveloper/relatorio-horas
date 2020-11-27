@@ -74,7 +74,7 @@ export default function Welcome(){
                                 <p>Efetue o cadastro gratúito, agora mesmo!</p>
                             </div>
                             <div className="col-sm-4 login-box">
-                                <div className={`card d-flex disabled my-auto mx-auto ${disableForm === true ? 'disabled' : ''}`}>
+                                <div className={`card d-flex my-auto mx-auto ${disableForm === true ? 'disabled' : ''}`}>
                                     <div className="card-body">
                                         <div className="logo d-flex font-weight-bold">
                                             <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-alarm-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
