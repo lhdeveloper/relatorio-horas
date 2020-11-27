@@ -83,8 +83,7 @@ export default function UserProfile() {
                                         <div className="col-sm-3">
                                             <div className="picture">
                                                 <picture className="w-100 mb-3">
-                                                    <Image cloudName={cloudinary_name} publicId={currentUser.image} loading="lazy" className="mx-auto w-100">
-                                                    </Image>
+                                                    <Image cloudName={cloudinary_name} publicId={currentUser.image} loading="lazy" className="mx-auto w-100"></Image>
                                                 </picture>
                                             </div>
                                             <ul className="list-group list-group-flush">
