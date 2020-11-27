@@ -199,7 +199,7 @@ export default function EditProfile() {
                                                         <img src={previewSource} width="200px" height="200px" />
                                                     </picture>
                                                 :   <Image cloudName={cloudinary_name} publicId={data.image} loading="lazy" className="mx-auto">
-                                                        <Transformation height="220" width="220" crop="fill" />
+                                                        <Transformation height="200" width="200" crop="fill" />
                                                     </Image>
                                                 }
                                                 
