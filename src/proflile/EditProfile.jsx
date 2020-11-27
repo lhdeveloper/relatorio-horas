@@ -92,9 +92,6 @@ export default function EditProfile() {
     const previewFile = (file) => {
         const reader = new FileReader();
         reader.readAsDataURL(file);
-        reader.onloadend = () => {
-            setPreviewSource(reader.result);
-        }
     }
 
     const fileUploadHandler = (imageUploaded) => {
