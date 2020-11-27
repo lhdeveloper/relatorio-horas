@@ -32,13 +32,15 @@
     //welcome
     #welcome {
         height:100vh;
-        padding:2em 0;
         .presentation {
             h1{
                 font-size:2.2rem!important;
             }
             h2 {
-                font-size: 1.7rem!important;
+                font-size: 1.5rem!important;
+            }
+            p {
+                font-size:.9em;
             }
         }
     }
