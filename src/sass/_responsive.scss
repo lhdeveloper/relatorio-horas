@@ -1,0 +1,85 @@
+@media screen and (max-width:996px) {
+    //header
+    header {
+        .navbar-brand {
+            font-size: 2em;
+            padding:0px!important;
+            border: none!important;
+        }
+
+        .dropdown {
+            background: $red;
+        }
+    }
+    //forms
+    #custom-form,
+    #user-profile {
+        padding:1em 0;
+        .form-group {
+            input {
+                margin-bottom:.5em
+            }
+        }
+    }
+
+
+    // login
+    #login,
+    #register {
+        height:100vh;
+    }
+
+    //welcome
+    #welcome {
+        height:100vh;
+        padding:2em 0;
+        .presentation {
+            h1{
+                font-size:2.2rem!important;
+            }
+            h2 {
+                font-size: 1.7rem!important;
+            }
+        }
+    }
+
+    //view
+    .mobile {
+        .card {
+            .buttons-actions {
+                a {
+                    font-size:1.6em;
+                    margin-left:.3em;
+                }   
+            }
+        }
+    }
+
+    //footer
+    footer {
+        .copyright,
+        .dev {
+            text-align: center;
+        }
+    }
+}
+
+@media screen and (min-width: 1024px){
+    //main
+    main {
+        section {
+            padding:3em 0;
+        }
+    }
+
+    //welcome
+    #welcome {
+        .align-items-center {
+            height:100%;
+        }
+    }
+
+    .custom-bg {
+        height:100vh;
+    }
+}
