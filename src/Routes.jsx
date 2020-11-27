@@ -38,7 +38,7 @@ export default function Routes(){
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/logout" component={Logout} />
                     <Route exact path="/register" component={Register} />
-                    <Route exact patch="/404" component={NotFound} />
+                    <Route component={NotFound} />
                 </Switch>
             </BrowserRouter>
         </>
