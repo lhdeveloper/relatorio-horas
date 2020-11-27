@@ -22,20 +22,18 @@ const Register = () => {
 
     const CreateUser = values => {
         api.post('/users/new', values).then((response) => {
-            if(response){
-                localStorage.setItem('app-token', response.data.token.token)
+            if(response.status === 200){
+                Swal.fire({
+                    icon: 'success',
+                    title: `Obrigado!`,
+                    html: `Seu cadastro foi efetuado com sucesso!<br/> Você será redirecionado para a home.`,
+                    allowOutsideClick: false,
+                    timer: 4000,
+                    showConfirmButton: false
+                }).then(() => {
+                    history.push(`/login`);
+                })
             }
-        }).then(() => {
-            Swal.fire({
-                icon: 'success',
-                title: `Obrigado!`,
-                html: `Seu cadastro foi efetuado com sucesso!<br/> Você será redirecionado para a home.`,
-                allowOutsideClick: false,
-                timer: 4000,
-                showConfirmButton: false
-            }).then(() => {
-                history.push(`/`);
-            })
         })
     }
 
