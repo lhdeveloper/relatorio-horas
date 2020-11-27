@@ -18,7 +18,6 @@ export default function UserProfile() {
         
     window.onresize = function(event){
         if(event.currentTarget.innerWidth < 996){
-            debugger
             isMobile = true;
         }
     }
