@@ -83,6 +83,12 @@ export default function EditProfile() {
 
     const [previewSource, setPreviewSource] = useState('');
 
+    const onDrop = picture => {
+        const file = picture[0];
+        previewFile(file);
+        fileUploadHandler(file);
+    };
+
     const previewFile = (file) => {
         const reader = new FileReader();
         reader.readAsDataURL(file);
@@ -90,12 +96,6 @@ export default function EditProfile() {
             setPreviewSource(reader.result);
         }
     }
-
-    const onDrop = picture => {
-        const file = picture[0];
-        previewFile(file);
-        fileUploadHandler(file);
-    };
 
     const fileUploadHandler = (imageUploaded) => {
         const formData = new FormData();
@@ -108,7 +108,7 @@ export default function EditProfile() {
                     debugger
                     setData({
                         ...data,
-                        image:response.data.url
+                        image:response.data.secure_url
                     })
                     // Swal.fire({
                     //     icon: `success`,
@@ -199,9 +199,7 @@ export default function EditProfile() {
                                             <div className="picture mb-3 bg-light p-3">
                                                 {previewSource ?
                                                     <picture>
-                                                        <Image cloudName={cloudinary_name} name="image" publicId={previewSource} loading="lazy" className="mx-auto d-block">
-                                                            <Transformation height="220" width="220" crop="fill" />
-                                                        </Image>
+                                                        <img src={previewSource} width="200px" height="200px" />
                                                     </picture>
                                                 :   <Image cloudName={cloudinary_name} publicId={data.image} loading="lazy" className="mx-auto">
                                                         <Transformation height="220" width="220" crop="fill" />
@@ -225,7 +223,7 @@ export default function EditProfile() {
                                             <h2 className="mb-3">Editar Perfil</h2>
                                             <div className="form-group">
                                                 <div className="row">
-                                                    <div className="col-12 col-sm-auto">
+                                                    <div className="col-12 col-sm-4">
                                                         <label className="d-block font-weight-bold">Nome</label>
                                                         <input type="text" 
                                                                 name="nome" 
@@ -234,7 +232,7 @@ export default function EditProfile() {
                                                                 onChange={handleChange} 
                                                         />
                                                     </div>
-                                                    <div className="col-12 col-sm-auto">
+                                                    <div className="col-12 col-sm-4">
                                                         <label className="d-block font-weight-bold">Sobrenome</label>
                                                         <input type="text" 
                                                                 name="sobrenome" 
@@ -243,7 +241,7 @@ export default function EditProfile() {
                                                                 onChange={handleChange}
                                                         />
                                                     </div>
-                                                    <div className="col-12 col-sm-auto">
+                                                    <div className="col-12 col-sm-4">
                                                         <label className="d-block font-weight-bold">E-mail</label>
                                                         <input type="text" 
                                                                 name="email" 
@@ -256,7 +254,7 @@ export default function EditProfile() {
                                             </div>
                                             <div className="form-group">
                                                 <div className="row">
-                                                    <div className="col-12 col-sm-auto">
+                                                    <div className="col-12 col-sm-4">
                                                         <label className="d-block font-weight-bold">Idade</label>
                                                         <input type="text" 
                                                                 name="idade" 
@@ -265,7 +263,7 @@ export default function EditProfile() {
                                                                 onChange={handleChange}
                                                         />
                                                     </div>
-                                                    <div className="col-12 col-sm-auto">
+                                                    <div className="col-12 col-sm-4">
                                                         <label className="d-block font-weight-bold">Cidade</label>
                                                         <input type="text" 
                                                                 name="cidade" 
@@ -274,7 +272,7 @@ export default function EditProfile() {
                                                                 onChange={handleChange}
                                                         />
                                                     </div>
-                                                    <div className="col-12 col-sm-auto">
+                                                    <div className="col-12 col-sm-4">
                                                         <label className="d-block font-weight-bold">Celular</label>
                                                         <InputMask className="form-control" name="telefone" mask="(99) 99999-9999" value={data.telefone} onChange={handleChange} />
 
@@ -283,7 +281,7 @@ export default function EditProfile() {
                                             </div>
                                             <div className="form-group">
                                                 <div className="row">
-                                                    <div className="col-12 col-sm-auto">
+                                                    <div className="col-12 col-sm-4">
                                                         <label className="d-block font-weight-bold">Cargo</label>
                                                         <input type="text" 
                                                                 name="cargo" 
@@ -292,7 +290,7 @@ export default function EditProfile() {
                                                                 onChange={handleChange}
                                                         />
                                                     </div>
-                                                    <div className="col-12 col-sm-auto">
+                                                    <div className="col-12 col-sm-4">
                                                         <label className="d-block font-weight-bold">Valor Hora</label>
                                                         <input type="text" 
                                                                 name="valor_hora" 
