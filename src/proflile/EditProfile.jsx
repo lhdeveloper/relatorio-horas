@@ -105,11 +105,11 @@ export default function EditProfile() {
         axios.post(`https://api.cloudinary.com/v1_1/${cloudinary_name}/image/upload`, formData)
             .then((response) => {
                 if(response.status === 200){
-                    debugger
                     setData({
                         ...data,
                         image:response.data.secure_url
                     })
+                    setPreviewSource(response.data.secure_url);
                     // Swal.fire({
                     //     icon: `success`,
                     //     title: `Show!`,
