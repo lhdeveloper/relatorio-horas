@@ -45,11 +45,12 @@
 
     //view
     .mobile {
-        &.card {
-            .card {
-                box-shadow: none!important;
-                border-radius: 0px;
-                border-bottom:1px solid #f1f1f1;
+        .card {
+            .buttons-actions {
+                a {
+                    font-size:1.6em;
+                    margin-left:.3em;
+                }   
             }
         }
     }
