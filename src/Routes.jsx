@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch, Redirect  } from 'react-router-dom';
 // import moment from 'moment';
 
 // rotas de views
+import Welcome from './views/Welcome';
 import Home from './views/Home';
 import UserProfile from './proflile/UserProfile';
 import EditProfile from './proflile/EditProfile';
@@ -20,20 +21,8 @@ import EditHoras from './forms/EditRegister';
 export default function Routes(){
     const PrivateRoute = (props) => {
         const isLogged = !!localStorage.getItem('app-token');
-        // if(isLogged){
-        //     const ultimoAcesso = localStorage.getItem('last-access');
-        //     const dataExpiracao = localStorage.getItem('expired-access');
 
-        //     if(now.isBetween(ultimoAcesso, dataExpiracao)){
-        //         return <Route { ...props} />
-        //     }else{
-        //         return <Redirect to="/login" />
-        //     }
-        // }else {
-        //     <Redirect to="/login" />
-        // }
-
-        return isLogged ? <Route { ...props} /> : <Redirect to="/login" />
+        return isLogged ? <Route { ...props} /> : <Redirect to="/welcome" />
     }
 
     return (
@@ -45,10 +34,11 @@ export default function Routes(){
                     <PrivateRoute exact path="/horas/edit/:id" component={EditHoras} />
                     <PrivateRoute exact path="/perfil/:username/" component={UserProfile} />
                     <PrivateRoute exact path="/perfil/:username/edit/" component={EditProfile} />
+                    <Route path="/welcome" component={Welcome} />
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/logout" component={Logout} />
                     <Route exact path="/register" component={Register} />
-                    <PrivateRoute component={NotFound} />
+                    <Route exact patch="/404" component={NotFound} />
                 </Switch>
             </BrowserRouter>
         </>

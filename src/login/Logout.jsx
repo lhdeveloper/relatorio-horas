@@ -26,7 +26,7 @@ export default function Logout() {
                 </div>
             </div>
         </div> */}
-        <Redirect to="/login" /> 
+        <Redirect to="/" /> 
         </>
     )
 }

@@ -8,7 +8,8 @@ import api from '../api';
 
 export default function RelatorioGeral(){
     let [relatorios, setRelatorios] = useState([]);
-
+    moment.locale('pt-br');
+    
     // access token
     const accessToken = localStorage.getItem('app-token');
     const infosUser = localStorage.getItem('infos-user');

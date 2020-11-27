@@ -19,6 +19,16 @@
         }
     }
 
+    //welcome
+    #welcome {
+        padding:6em 0;
+        .presentation {
+            h1{
+                font-size:3rem!important;
+            }
+        }
+    }
+
     //footer
     footer {
         .copyright {
@@ -33,5 +43,9 @@
         section {
             padding:3em 0;
         }
+    }
+
+    .custom-bg {
+        height:100vh;
     }
 }

@@ -60,7 +60,7 @@ export default function Login() {
     }
 
     return (
-        <div id="login-page" style={{backgroundImage: `url('/bg-login.jpg')` }}>
+        <div id="login-page" className="custom-bg" style={{backgroundImage: `url('/bg-login.jpg')` }}>
             <Helmet title="Login | Relatório de Horas" />
             <div className="d-flex h-100 justify-content-center align-items-center">
                 <div className="card d-flex my-auto mx-auto">
@@ -81,7 +81,7 @@ export default function Login() {
                                     <input type="password" name="password" className="form-control" onChange={onChange} value={values.password} ref={register({ required: 'Campo obrigatório' })}/>
                                 </div>
                                 <div className="form-group">
-                                    <button type="submit" className="btn btn-success text-white w-100">Entrar</button>
+                                    <button type="submit" className="btn btn-secondary text-white w-100">Entrar</button>
                                     <a href="/register" className="mt-2 text-center d-block">Criar Conta</a>
                                     <a href="/recovery" className="mt-2 text-center d-block">Esqueci minha senha</a>
                                 </div>

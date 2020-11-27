@@ -23,7 +23,6 @@ const Register = () => {
     const CreateUser = values => {
         api.post('/users/new', values).then((resp) => {
             const { data } = resp
-            debugger
             if(data){
                 localStorage.setItem('app-token', data.token)
             }
@@ -35,7 +34,7 @@ const Register = () => {
                 allowOutsideClick: false,
                 timer: 6000,
             }).then(() => {
-                history.push("/profile");
+                history.push("/");
             })
         })
     }
@@ -50,10 +49,10 @@ const Register = () => {
     }
 
     return (
-        <div id="login-page" style={{backgroundImage: `url('/bg-login.jpg')` }}>
+        <div id="login-page" className="custom-bg" style={{backgroundImage: `url('/bg-login.jpg')` }}>
             <Helmet title="Cadastro | Relatório de Horas" />
             <div className="d-flex h-100 justify-content-center align-items-center">
-                <div className="card w-50 d-flex my-auto mx-auto">
+                <div className="card d-flex my-auto mx-auto">
                     <div className="card-body">
                         <div className="logo d-flex font-weight-bold">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-alarm-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -76,8 +75,8 @@ const Register = () => {
                                     <input type="password" name="password" className="form-control" onChange={onChange} value={values.password} ref={register({ required: 'Campo obrigatório' })}/>
                                 </div>
                                 <div className="form-group">
-                                    <button type="submit" className="btn btn-success text-white w-100">Cadastrar</button>
-                                    <a href="/login" className="mt-2 text-center d-block">Voltar</a>
+                                    <button type="submit" className="btn btn-secondary text-white w-100">Cadastrar</button>
+                                    <a href="/" className="mt-2 text-center d-block">Voltar</a>
                                 </div>
                             </form>
                         </div>
