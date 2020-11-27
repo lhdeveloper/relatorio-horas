@@ -278,7 +278,7 @@ export default function EditProfile() {
                                                     </div>
                                                     <div className="col-12 col-sm-auto">
                                                         <label className="d-block font-weight-bold">Celular</label>
-                                                        <InputMask className="form-control" mask="(99) 99999-9999" value={data.telefone} onChange={handleChange} />
+                                                        <InputMask className="form-control" name="telefone" mask="(99) 99999-9999" value={data.telefone} onChange={handleChange} />
 
                                                     </div>
                                                 </div>
