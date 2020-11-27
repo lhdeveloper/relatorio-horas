@@ -3,9 +3,12 @@
     header {
         .navbar-brand {
             font-size: 2em;
-            margin:0px auto;
             padding:0px!important;
             border: none!important;
+        }
+
+        .dropdown {
+            background: $red;
         }
     }
     //forms
@@ -38,7 +41,8 @@
 
     //footer
     footer {
-        .copyright {
+        .copyright,
+        .dev {
             text-align: center;
         }
     }
