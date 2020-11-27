@@ -101,14 +101,14 @@ export default function EditProfile() {
         const formData = new FormData();
         formData.append('file', imageUploaded);
         formData.append('upload_preset', 'zcbttm6s');
-        debugger
+
         axios.post(`https://api.cloudinary.com/v1_1/${cloudinary_name}/image/upload`, formData)
             .then((response) => {
-                debugger
                 if(response.status === 200){
+                    debugger
                     setData({
                         ...data,
-                        image:response.data.secure_url
+                        image:response.data.url
                     })
                     // Swal.fire({
                     //     icon: `success`,
@@ -197,18 +197,16 @@ export default function EditProfile() {
                                     <div className="row">
                                         <div className="col-sm-3">
                                             <div className="picture mb-3 bg-light p-3">
-                                                {previewSource && (
+                                                {previewSource ?
                                                     <picture>
                                                         <Image cloudName={cloudinary_name} name="image" publicId={previewSource} loading="lazy" className="mx-auto d-block">
                                                             <Transformation height="220" width="220" crop="fill" />
                                                         </Image>
                                                     </picture>
-                                                )}
-                                                {!previewSource && (
-                                                    <Image cloudName={cloudinary_name} publicId={data.image} loading="lazy" className="mx-auto">
+                                                :   <Image cloudName={cloudinary_name} publicId={data.image} loading="lazy" className="mx-auto">
                                                         <Transformation height="220" width="220" crop="fill" />
                                                     </Image>
-                                                )}
+                                                }
                                                 
                                                 <ImageUploader
                                                     withIcon={false}
