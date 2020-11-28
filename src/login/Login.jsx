@@ -26,7 +26,8 @@ export default function Login() {
         api.post('/login', values).then((resp) => {
             const { data } = resp            
             if(data){
-                if(data.status !== 200){
+                debugger
+                if(resp.status !== 200){
                     setDisableForm(true);
 
                 }else {

@@ -47,7 +47,7 @@ export default function NewRegister(){
 
     const saveItem = (e) => {
         e.preventDefault();
-
+        debugger
         var day = data.data.split('T')[0];
         data.inicio = data.inicio ? `${day} ${data.inicio}:00` : '';
         data.saida = data.saida ? `${day} ${data.saida}:00` : '';

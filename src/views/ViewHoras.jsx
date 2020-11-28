@@ -19,6 +19,7 @@ export default function RelatorioGeral(){
     var isMobile = window.innerWidth < 996
     
     useEffect(() => {
+        debugger
         api.get(`/horas/user/${userID}`, {
             headers: {
                 'Authorization': `Bearer ${accessToken}`
@@ -309,7 +310,7 @@ export default function RelatorioGeral(){
                                             </div>
                                             <div className="col">
                                                 <small className="font-weight-bold">Saida</small>
-                                                <div>{item.saida ? moment(item.saida).format('HH:mm') : ''}</div>
+                                                <div>{item.fim ? moment(item.fim).format('HH:mm') : ''}</div>
                                             </div>
                                             <div className="col-12 mt-3">
                                                 <div className="bg-secondary text-white p-1">
