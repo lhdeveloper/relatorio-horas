@@ -26,7 +26,6 @@ export default function Status(){
                 const sum = totalHoras.reduce((acc, time) => acc.add(moment.duration(time)), moment.duration()); 
                 const total = [Math.floor(sum.asHours()), sum.minutes()].join(':');
 
-                debugger
                 setTotalHoras(total);
                 setTotalMes(`00:00:00`);
                 

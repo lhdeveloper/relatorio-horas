@@ -22,24 +22,22 @@ const Register = () => {
 
     const CreateUser = values => {
         api.post('/users/new', values).then((response) => {
-            if(response.status === 200){
-                Swal.fire({
-                    icon: 'success',
-                    title: `Obrigado!`,
-                    html: `Seu cadastro foi efetuado com sucesso!<br/> Você será redirecionado para a tela de login.`,
-                    allowOutsideClick: false,
-                    timer: 4000,
-                    showConfirmButton: false
-                }).then(() => {
-                    history.push(`/welcome`);
-                })
-            }else {
-                Swal.fire({
-                    icon: `error`,
-                    title: `Oops!`,
-                    html: `Ocorreu um erro ao tentar efetuar seu cadastro.<br/> Por favor, tente novamente`
-                })
-            }
+            Swal.fire({
+                icon: 'success',
+                title: `Obrigado!`,
+                html: `Seu cadastro foi efetuado com sucesso!<br/> Você será redirecionado para a tela de login.`,
+                allowOutsideClick: false,
+                timer: 4000,
+                showConfirmButton: false
+            }).then(() => {
+                history.push(`/welcome`);
+            })
+        }).catch((err) => {
+            Swal.fire({
+                icon: `error`,
+                title: `Oops!`,
+                html: `Ocorreu um erro ao tentar efetuar seu cadastro.<br/> Por favor, tente novamente. <small>${err}</small>`
+            })
         })
     }
 
