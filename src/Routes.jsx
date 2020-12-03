@@ -15,12 +15,11 @@ import Register from './login/Register';
 import Logout from './login/Logout';
 
 // importando forms
-import AddHoras from './forms/NewRegister';
-import EditHoras from './forms/EditRegister';
+import AddHoras from './forms/RegistroHora';
+import EditHoras from './forms/EditarHora';
 
 export default function Routes(){
     const PrivateRoute = (props) => {
-        debugger
         const isLogged = !!localStorage.getItem('app-token');
 
         return isLogged ? <Route { ...props} /> : <Redirect to="/welcome" />

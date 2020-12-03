@@ -2,8 +2,8 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 
 const api = axios.create({
-    baseURL: 'https://external.hatto.in'
-    // baseURL: 'http://localhost:3333'
+    // baseURL: 'https://external.hatto.in'
+    baseURL: 'http://localhost:3333'
 });
 
 api.interceptors.request.use(async (response) => {
