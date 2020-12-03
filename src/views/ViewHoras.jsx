@@ -50,7 +50,6 @@ export default function RelatorioGeral(){
                         'Authorization': `Bearer ${accessToken}`
                     }
                 }).then((res) => {
-                    debugger
                     Swal.fire({
                         icon: `success`,
                         title: `Beleza!`,
@@ -195,7 +194,7 @@ export default function RelatorioGeral(){
                                     {!isMobile && (
                                         <div className="col">
                                             <small className="font-weight-bold">Total Dia</small>
-                                            <div>{item.total ? item.total : ''}</div>
+                                            <div>{item.total ? moment(item.total).format('HH:mm') : ''}</div>
                                         </div>
                                     )}
                                     {isMobile && (

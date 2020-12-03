@@ -64,21 +64,21 @@ export default function NewRegister(){
     const saveItem = (e) => {
         e.preventDefault();
 
-        // verificando os valores dos campos antes de salvar;
-        data.inicio = data.inicio ? data.inicio : '';
-        data.saida = data.saida ? data.saida : '';
-        data.retorno = data.retorno ? data.retorno : '';
-        data.fim = data.fim ? data.fim : '';
-        data.user_id = currentID;
-        data.saida2 = data.saida2 ? data.saida2 : '';
-        data.retorno2 = data.retorno2 ? data.retorno2 : '';
-        data.saida3 = data.saida3 ? data.saida3 : '';
-        data.retorno3 = data.retorno3 ? data.retorno3 : '';
-        data.saida4 = data.saida4 ? data.saida4 : '';
-        data.retorno4 = data.retorno4 ? data.retorno4 : '';
+        var today = data.data.split('T')[0];
 
-        debugger
-        
+        // verificando os valores dos campos antes de salvar;
+        data.inicio = data.inicio ? moment(today).format(`YYYY-MM-DD ${data.inicio}:ss`) : '';
+        data.saida = data.saida ? moment(today).format(`YYYY-MM-DD ${data.saida}:ss`) : '';
+        data.retorno = data.retorno ? moment(today).format(`YYYY-MM-DD ${data.retorno}:ss`) : '';
+        data.fim = data.fim ? moment(today).format(`YYYY-MM-DD ${data.fim}:ss`) : '';
+        data.user_id = currentID;
+        data.saida2 = data.saida2 ? moment(today).format(`YYYY-MM-DD ${data.saida2}:ss`) : '';
+        data.retorno2 = data.retorno2 ? moment(today).format(`YYYY-MM-DD ${data.retorno2}:ss`) : '';
+        data.saida3 = data.saida3 ? moment(today).format(`YYYY-MM-DD ${data.saida3}:ss`) : '';
+        data.retorno3 = data.retorno3 ? moment(today).format(`YYYY-MM-DD ${data.retorno3}:ss`) : '';
+        data.saida4 = data.saida4 ? moment(today).format(`YYYY-MM-DD ${data.saida4}:ss`): '';
+        data.retorno4 = data.retorno4 ? moment(today).format(`YYYY-MM-DD ${data.retorno4}:ss`) : '';
+
         api.post('/horas', data, {
             headers: {
                 'Authorization': `Bearer ${accessToken}`
@@ -114,24 +114,24 @@ export default function NewRegister(){
                         <form onSubmit={saveItem}>
                             <div className="form-group">
                                 <div className="row">
-                                    <div className="col-12 col-sm-2">
+                                    <div className="col-12 col-sm-auto">
                                         <label className="text-uppercase font-weight-bold">Data <span className="text-danger">*</span></label>
                                             <input type="date" name="data" value={data.data} onChange={handleChange} className="form-control" ref={register({ required: true })} />
                                             {errors.data && <p className="text-danger mt-2">{errors.data.message}</p>}
                                     </div>
-                                    <div className="col-12 col-sm-2">
+                                    <div className="col-12 col-sm-auto">
                                         <label className="text-uppercase font-weight-bold">Início</label>
                                         <InputMask mask="99:99" onChange={handleChange} name="inicio" value={data.inicio} className="form-control" />
                                     </div>
-                                    <div className="col-12 col-sm-2">
+                                    <div className="col-12 col-sm-auto">
                                         <label className="text-uppercase font-weight-bold">Saida Almoço</label>
                                         <InputMask mask="99:99" onChange={handleChange} name="saida" value={data.saida} className="form-control" />
                                     </div>
-                                    <div className="col-12 col-sm-2">
+                                    <div className="col-12 col-sm-auto">
                                         <label className="text-uppercase font-weight-bold">Retorno Almoço</label>
                                         <InputMask mask="99:99" onChange={handleChange} name="retorno" value={data.retorno} className="form-control" />
                                     </div>
-                                    <div className="col-12 col-sm-2">
+                                    <div className="col-12 col-sm-auto">
                                         <label className="text-uppercase font-weight-bold">Saida </label>
                                         <InputMask mask="99:99" onChange={handleChange} name="fim" value={data.fim} className="form-control" />
                                     </div>
