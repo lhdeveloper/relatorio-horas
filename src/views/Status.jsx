@@ -20,10 +20,13 @@ export default function Status(){
             }).then((res) => {
                 setRegistros(res.data);
                 const totalHoras = res.data.map((item) => {
-                    return item.total
+                    return moment(item.total).format(`HH:mm:ss`);
                 })
+
                 const sum = totalHoras.reduce((acc, time) => acc.add(moment.duration(time)), moment.duration()); 
                 const total = [Math.floor(sum.asHours()), sum.minutes()].join(':');
+
+                debugger
                 setTotalHoras(total);
                 setTotalMes(`00:00:00`);
                 
