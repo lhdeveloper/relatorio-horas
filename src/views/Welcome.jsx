@@ -23,7 +23,6 @@ export default function Welcome(){
     const LoginUser = values => {
         api.post('/login', values).then((resp) => {
             const { data } = resp
-            debugger
             if(data){
                 if(data.status !== 200){
                     setDisableForm(true);
