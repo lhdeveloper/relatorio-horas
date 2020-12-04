@@ -18,7 +18,7 @@ export default function DashBoard(){
             <main>
                 <div id="dashboard">
                     <div className="container">
-                        <section id="status" className="mb-5">
+                        <section id="status">
                             <Status />
                         </section>
 
