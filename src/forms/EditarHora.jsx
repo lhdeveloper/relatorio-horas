@@ -55,10 +55,10 @@ export default function EditRegister(props){
             // modificando os campos de hora pra serem exibidos
             let modifyObj = response.data;
             modifyObj.data = `${moment(modifyObj.data).format('YYYY-MM-DD')}`
-            modifyObj.inicio = `${moment(modifyObj.inicio).format(`HH:mm`)}`;
-            modifyObj.saida = `${moment(modifyObj.saida).format(`HH:mm`)}`;
-            modifyObj.retorno = `${moment(modifyObj.retorno).format(`HH:mm`)}`;
-            modifyObj.fim = `${moment(modifyObj.fim).format(`HH:mm`)}`;
+            modifyObj.inicio = `${modifyObj.inicio ? moment(modifyObj.inicio).format(`HH:mm`) : ''}`;
+            modifyObj.saida = `${modifyObj.saida ? moment(modifyObj.saida).format(`HH:mm`) : ''}`;
+            modifyObj.retorno = `${modifyObj.retorno ? moment(modifyObj.retorno).format(`HH:mm`) : ''}`;
+            modifyObj.fim = `${modifyObj.fim ? moment(modifyObj.fim).format(`HH:mm`) : ''}`;
             
             setData(modifyObj)
 
@@ -85,8 +85,6 @@ export default function EditRegister(props){
         e.preventDefault();
 
         var day = data.data.split('T')[0];
-
-        debugger
 
         data.inicio = `${day} ${data.inicio}:00`;
 

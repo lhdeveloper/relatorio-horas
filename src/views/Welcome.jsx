@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
-import moment from 'moment';
 import api from '../api';
 import Swal from 'sweetalert2';
 import '../sass/Login.scss';
