@@ -200,7 +200,7 @@ export default function RelatorioGeral(){
                                     {isMobile && (
                                         <div className="col-12 mt-3">
                                             <div className="bg-secondary text-white p-1">
-                                                <small className="font-weight-bold">Total de horas no Dia: {item.total}</small>
+                                                <small className="font-weight-bold">Total de horas no Dia: {moment(item.total).format(`HH:mm`)}</small>
                                             </div>
                                         </div>
                                     )}

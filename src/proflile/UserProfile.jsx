@@ -59,7 +59,7 @@ export default function UserProfile() {
             }
         }).then((response) => {
             const totalHoras = response.data.map((item) => {
-                return item.total
+                return moment(item.total).format(`HH:mm`)
             })
 
             const sum = totalHoras.reduce((acc, time) => acc.add(moment.duration(time)), moment.duration()); 
