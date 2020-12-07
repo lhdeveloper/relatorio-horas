@@ -113,7 +113,7 @@ export default function Status(){
                     </div>
                 </div>
             </div>
-            <div className="col-lg-4 mb-4">
+            <div className="col-lg-4 mb-4 d-none">
                 <div className="card">
                     <div className="card-body">
                         {!totalMes && (
