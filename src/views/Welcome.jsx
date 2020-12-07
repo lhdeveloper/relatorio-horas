@@ -5,6 +5,8 @@ import api from '../api';
 import Swal from 'sweetalert2';
 import '../sass/Login.scss';
 
+import LGPD from '../containers/LGPD';
+
 export default function Welcome(){
     let history = useHistory();
     const { register, handleSubmit, errors } = useForm();
@@ -90,7 +92,7 @@ export default function Welcome(){
                                                 <div className="form-group">
                                                     <button type="submit" className="btn btn-secondary text-white w-100">Entrar</button>
                                                     <a href="/register" className="mt-2 text-center d-block">Criar Conta</a>
-                                                    <a href="/recovery" className="mt-2 text-center d-block">Esqueci minha senha</a>
+                                                    <a href="/recovery" className="mt-2 text-center d-none">Esqueci minha senha</a>
                                                 </div>
                                             </form>
                                         </div>
@@ -101,6 +103,7 @@ export default function Welcome(){
                     </div>
                 </div>
             </div>
+            <LGPD></LGPD>
         </>
     )
 }
