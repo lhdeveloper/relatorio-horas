@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import Helmet from 'react-helmet';
-import moment from 'moment';
 import api from '../api';
 import Swal from 'sweetalert2';
 
@@ -26,7 +25,6 @@ export default function Login() {
         api.post('/login', values).then((resp) => {
             const { data } = resp            
             if(data){
-                debugger
                 if(resp.status !== 200){
                     setDisableForm(true);
 
@@ -40,8 +38,6 @@ export default function Login() {
                     }).then((res) => {
                         const dadosUser = JSON.stringify(res.data);
                         localStorage.setItem('infos-user', dadosUser);
-                        localStorage.setItem('last-access', moment().format('YYYY-MM-DD HH:mm:ss'))
-                        localStorage.setItem('expired-access', moment().add(10, 'hours').format('YYYY-MM-DD HH:mm:ss'));
                         history.push("/");
                     })
                 }
@@ -51,7 +47,7 @@ export default function Login() {
             Swal.fire({
                 icon: `error`,
                 title: `Oops!`,
-                html: `Sentimos muito, ocorreu um erro interno no Servidor.<br/><small>tente novamente dentro de alguns instantes.</small>`,
+                html: `Ocorreu um erro com seu login ou senha.<br/><small>Por favor, tente novamente.</small>`,
                 allowOutsideClick: false
             })
         })
