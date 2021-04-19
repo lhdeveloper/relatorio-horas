@@ -2,7 +2,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 
 const api = axios.create({
-    baseURL: 'https://external.hatto.in'
+    baseURL: 'https://relatorio-horas-api.lhdeveloper.me'
     // baseURL: 'http://localhost:3333'
 });
 
