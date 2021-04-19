@@ -20,7 +20,7 @@ export default function LGPD(){
                             <p className="m-0">Este site trabalha com cookies apenas para facilitar o acesso, não armazenamos seus dados pessoais em cache.</p>
                         </div>
                         <div className="col-sm-2 ml-auto">
-                            <button type="button" className="btn btn-sm btn-primary" onClick={termosAceite}>Aceito</button>
+                            <button type="button" className="btn btn-sm btn-primary" onClick={termosAceite}>Prosseguir</button>
                         </div>
                     </div>
                 </div>
